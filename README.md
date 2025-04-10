@@ -1,5 +1,19 @@
 # Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+### 環境版本：
+- `node -v`  
+  `v20.17.0`
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+### B. 驗收標準：
+- 頁面正確顯示所有查詢後的資訊
+- 使用的目標語言正確
+
+### C. 加分項：
+- 找到合適的場景使用 Vue 的各類基礎語法，例如：`computed`、`v-bind`、`v-on`、`v-if`/`v-show`、`v-for`、`watch`  
+  - 這是一個範例：總資料筆數透過 `computed` 來進行呈現  
+  - 這是另一個範例：取得營業收入-去年同期增減(%)後，使用 `computed` 四捨五入至小數第二位
+- 初次進入頁面時查詢全部資料，透過 **生命周期** 來進行
+
+---
+
+
