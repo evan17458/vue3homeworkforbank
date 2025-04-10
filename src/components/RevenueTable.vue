@@ -156,13 +156,13 @@ table {
 
 th, td {
   border: 1px solid #ccc;
-  padding: 0.5rem;
+  padding:8px;
   text-align: center;
   word-wrap: break-word;
 }
 
 th {
- 
+  background-color: #dcd0ff;
   font-weight: bold;
   position: sticky;
   top: 0;
