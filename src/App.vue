@@ -1,12 +1,16 @@
 <script setup>
 
-
-import RevenueSearch from './components/RevenueSearch.vue'
 </script>
 
 <template>
-   <RevenueSearch />
+  <div>
+    <nav>
+      <RouterLink to="/search">🔍 查詢公司</RouterLink> |
+      <RouterLink to="/list">📊 營收總覽</RouterLink>
+    </nav>
 
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
