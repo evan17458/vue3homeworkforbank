@@ -22,26 +22,24 @@
           <td>{{ formatYearMonth(item.reportYearMonth) }}</td>
           <td class="text-right">{{ formatNumber(item.currentMonthRevenue) }}</td>
 
-          <!-- MoM 增減 -->
           <td :class="['text-right', getPercentClass(item.moMChangePercent)]">
-            <span v-if="parseFloat(item.moMChangePercent) > 0">🔺</span>
-            <span v-else-if="parseFloat(item.moMChangePercent) < 0">🔻</span>
-            {{ formatPercent(item.moMChangePercent) }}
-          </td>
+  <span class="arrow-up" v-if="parseFloat(item.moMChangePercent) > 0"></span>
+  <span class="arrow-down" v-else-if="parseFloat(item.moMChangePercent) < 0"></span>
+  {{ formatPercent(item.moMChangePercent) }}
+</td>
 
-          <!-- YoY 增減 -->
-          <td :class="['text-right', getPercentClass(item.yoYChangePercent)]">
-            <span v-if="parseFloat(item.yoYChangePercent) > 0">🔺</span>
-            <span v-else-if="parseFloat(item.yoYChangePercent) < 0">🔻</span>
-            {{ formatPercent(item.yoYChangePercent) }}
-          </td>
+<td :class="['text-right', getPercentClass(item.yoYChangePercent)]">
+  <span class="arrow-up" v-if="parseFloat(item.yoYChangePercent) > 0"></span>
+  <span class="arrow-down" v-else-if="parseFloat(item.yoYChangePercent) < 0"></span>
+  {{ formatPercent(item.yoYChangePercent) }}
+</td>
 
-          <!-- 累計年增率 -->
-          <td :class="['text-right', getPercentClass(item.accumulatedChangePercent)]">
-            <span v-if="parseFloat(item.accumulatedChangePercent) > 0">🔺</span>
-            <span v-else-if="parseFloat(item.accumulatedChangePercent) < 0">🔻</span>
-            {{ formatPercent(item.accumulatedChangePercent) }}
-          </td>
+<td :class="['text-right', getPercentClass(item.accumulatedChangePercent)]">
+  <span class="arrow-up" v-if="parseFloat(item.accumulatedChangePercent) > 0"></span>
+  <span class="arrow-down" v-else-if="parseFloat(item.accumulatedChangePercent) < 0"></span>
+  {{ formatPercent(item.accumulatedChangePercent) }}
+</td>
+         
 
           <!-- 備註欄位：滑鼠移上時透過 Teleport 顯示完整備註 -->
           <td
@@ -55,7 +53,7 @@
       </tbody>
     </table>
 
-    <!-- Teleport 到 body，用來顯示 tooltip，避免被任何父層擋住 -->
+   
     <teleport to="body">
       <div
         v-if="tooltip.visible"
@@ -150,8 +148,7 @@ const hideTooltip = () => {
 
 <style scoped>
 .table-container {
-  /* 如果這裡有 overflow: auto 或 hidden，tooltip 也不會被剪裁 
-     因為我們用 Teleport 到 body，所以可以放心 */
+  
   margin-top: 1rem;
 }
 
@@ -198,5 +195,11 @@ tbody tr:nth-child(odd) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.arrow-up {
+  &::before {
+    content: '▲'; 
+    color: red; 
+}
 }
 </style>
