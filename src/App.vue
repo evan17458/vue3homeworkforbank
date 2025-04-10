@@ -1,12 +1,8 @@
-<script setup>
-
-</script>
-
 <template>
   <div>
-    <nav>
-      <RouterLink to="/search">🔍 查詢公司</RouterLink> |
-      <RouterLink to="/list">📊 營收總覽</RouterLink>
+    <nav class="nav-links">
+      <RouterLink to="/list"  class="nav-link" active-class="active">📊 營收總覽</RouterLink>
+      <RouterLink to="/search"  class="nav-link" active-class="active">🔍 查詢公司</RouterLink>
     </nav>
 
     <RouterView />
@@ -14,16 +10,30 @@
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  margin-bottom: -40px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.active {
+  font-weight: bold;
+  text-decoration: underline;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.nav-link {
+  display: inline-block; /* 讓 padding 有效 */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #4b0082;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+  background-color: #e0e0ff;
+  color: #000080;
 }
 </style>

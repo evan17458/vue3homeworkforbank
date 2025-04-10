@@ -3,7 +3,7 @@ import RevenueSearch from '../views/RevenueSearch.vue'
 import RevenueList from '../views/RevenueList.vue'
 
 const routes = [
-  { path: '/', redirect: '/search' },
+  { path: '/', redirect: '/list' },
   { path: '/search', component: RevenueSearch },
   { path: '/list', component: RevenueList }
 ]
