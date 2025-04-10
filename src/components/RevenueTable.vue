@@ -21,25 +21,23 @@
           <td>{{ item.industryCategory }}</td>
           <td>{{ formatYearMonth(item.reportYearMonth) }}</td>
           <td class="text-right">{{ formatNumber(item.currentMonthRevenue) }}</td>
-
           <td :class="['text-right', getPercentClass(item.moMChangePercent)]">
-  <span class="arrow-up" v-if="parseFloat(item.moMChangePercent) > 0"></span>
-  <span class="arrow-down" v-else-if="parseFloat(item.moMChangePercent) < 0"></span>
-  {{ formatPercent(item.moMChangePercent) }}
-</td>
+          <span class="arrow-up" v-if="parseFloat(item.moMChangePercent) > 0"></span>
+          <span class="arrow-down" v-else-if="parseFloat(item.moMChangePercent) < 0"></span>
+         {{ formatPercent(item.moMChangePercent) }}
+         </td>
 
-<td :class="['text-right', getPercentClass(item.yoYChangePercent)]">
-  <span class="arrow-up" v-if="parseFloat(item.yoYChangePercent) > 0"></span>
-  <span class="arrow-down" v-else-if="parseFloat(item.yoYChangePercent) < 0"></span>
-  {{ formatPercent(item.yoYChangePercent) }}
-</td>
+         <td :class="['text-right', getPercentClass(item.yoYChangePercent)]">
+         <span class="arrow-up" v-if="parseFloat(item.yoYChangePercent) > 0"></span>
+         <span class="arrow-down" v-else-if="parseFloat(item.yoYChangePercent) < 0"></span>
+         {{ formatPercent(item.yoYChangePercent) }}
+         </td>
 
-<td :class="['text-right', getPercentClass(item.accumulatedChangePercent)]">
-  <span class="arrow-up" v-if="parseFloat(item.accumulatedChangePercent) > 0"></span>
-  <span class="arrow-down" v-else-if="parseFloat(item.accumulatedChangePercent) < 0"></span>
-  {{ formatPercent(item.accumulatedChangePercent) }}
-</td>
-         
+        <td :class="['text-right', getPercentClass(item.accumulatedChangePercent)]">
+        <span class="arrow-up" v-if="parseFloat(item.accumulatedChangePercent) > 0"></span>
+        <span class="arrow-down" v-else-if="parseFloat(item.accumulatedChangePercent) < 0"></span>
+        {{ formatPercent(item.accumulatedChangePercent) }}
+        </td>
 
           <!-- 備註欄位：滑鼠移上時透過 Teleport 顯示完整備註 -->
           <td
@@ -52,8 +50,7 @@
         </tr>
       </tbody>
     </table>
-
-   
+  
     <teleport to="body">
       <div
         v-if="tooltip.visible"
@@ -106,7 +103,7 @@ const truncate = (text, maxLength) => {
   return text.length > maxLength ? text.slice(0, maxLength) + '...' : text
 }
 
-// -------- Teleport Tooltip 狀態 --------
+
 const tooltip = ref({
   visible: false,
   text: '',
@@ -122,12 +119,12 @@ const tooltip = ref({
     fontSize: '12px',
     whiteSpace: 'normal',
     maxWidth: '300px',
-    pointerEvents: 'none', // 滑鼠移上不會影響事件
+    pointerEvents: 'none', 
     boxShadow: '0 0 4px rgba(0,0,0,.3)'
   }
 })
 
-// 滑鼠移到備註欄時，顯示 tooltip
+
 const showTooltip = (event, note) => {
   if (!note || note.length <= 8) return // 如果文字沒超出8字，不顯示 tooltip
   tooltip.value.visible = true
@@ -147,8 +144,7 @@ const hideTooltip = () => {
 </script>
 
 <style scoped>
-.table-container {
-  
+.table-container { 
   margin-top: 1rem;
 }
 
